@@ -4,11 +4,11 @@
     
 }
 
-div {
+h3 {
     display: inline-block;
-    width: 175px;
-    margin: auto;
-    padding: 10px;
+    width: 120px;
+    margin: 10px;
+    padding-left: 60px;
     border: thin solid blue;
 
 }

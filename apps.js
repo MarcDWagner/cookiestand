@@ -5,11 +5,6 @@
 //   return Math.floor(Math.random() * (highValue + 1));
 // }
 
-function generateBetween(low, high) {
-  return Math.floor(Math.random() * (high - low + 1)) + low;
-}
-
-console.log(generateBetween(23, 65));
 
 // Calculate the average number of cookie sales per hours, per store.
 // Think of each store as an object.
@@ -26,6 +21,7 @@ console.log(generateBetween(23, 65));
 
 // alert(person['firstName']);
 
+
 let seattle = {
   minCust: 23,
   maxCust: 65,
@@ -33,3 +29,15 @@ let seattle = {
   hours: '0600'
 };
 console.log(seattle);
+
+function generateBetween(low, high) {
+  return Math.floor(Math.random() * (high - low + 1)) + low;
+}
+
+console.log(generateBetween(23, 65));
+
+function saleEachHour(a, b) {
+  let result = a * b;
+  return [result];
+}
+console.log(saleEachHour(generateBetween, 6.3));
