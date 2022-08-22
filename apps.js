@@ -1,13 +1,13 @@
 // Generating random numbers
 function generateRandomNumber(highValue) {
-    return Math.floor(Math.random() * (highValue + 1));
+  return Math.floor(Math.random() * (highValue + 1));
 }
 
 function generateBetween(low, high) {
- return Math.floor(Math.random() * (high - low + 1)) + low;
+  return Math.floor(Math.random() * (high - low + 1)) + low;
 }
 
-console.log(generateBetween(5,20));
+console.log(generateBetween(5, 20));
 
 // Calculate the average number of cookie sales per hours, per store.
 // Think of each store as an object.
