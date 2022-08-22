@@ -1,9 +1,9 @@
 'use strict';
 // Generating random numbers
 
-function generateRandomNumber(highValue) {
-  return Math.floor(Math.random() * (highValue + 1));
-}
+// function generateRandomNumber(highValue) {
+//   return Math.floor(Math.random() * (highValue + 1));
+// }
 
 function generateBetween(low, high) {
   return Math.floor(Math.random() * (high - low + 1)) + low;
@@ -26,10 +26,10 @@ console.log(generateBetween(23, 65));
 
 // alert(person['firstName']);
 
-let cookieStore = {
-  location: 'Seattle',
+let seattle = {
   minCust: 23,
   maxCust: 65,
-  avgSale: 6.3
+  avgSale: 6.3,
+  hours: '0600'
 };
-console.log(cookieStore);
+console.log(seattle);

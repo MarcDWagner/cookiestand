@@ -1,0 +1,14 @@
+.salesperhour {
+    border: thin solid black;
+    background-color:antiquewhite;
+    
+}
+
+div {
+    display: inline-block;
+    width: 175px;
+    margin: auto;
+    padding: 10px;
+    border: thin solid blue;
+
+}
