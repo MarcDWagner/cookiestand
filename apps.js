@@ -14,12 +14,6 @@
 // Use 'this' keyword
 // Here's the store hours, here's my values for cookie sales
 
-// let person = {
-//   firstName: 'John',
-//   lastName: 'Doe'
-// };
-
-// alert(person['firstName']);
 
 let hours = ['0600', '0700', '0800', '0900', '1000', '1100', '1200', '1300', '1400', '1500', '1600', '1700', '1800', '1900'];
 
@@ -59,14 +53,49 @@ let seattle = {
     totalli.textContent = `Total = ${this.grandTotal}`;
   }
 };
-
 seattle.displaySales();
-// console.log(seattle);
 
 function generateBetween(low, high) {
   return Math.floor(Math.random() * (high - low + 1)) + low;
 }
 
+let tokyo = {
+  name: 'Tokyo Sales',
+  minCust: 3,
+  maxCust: 24,
+  avgSale: 1.2,
+  totalCookies: [],
+  grandTotal: 0,
+
+  saleEachHour: function () {
+    for (let i = 0; i < hours.length; i++) {
+      let result = generateBetween(this.minCust, this.maxCust);
+      let totalCookies = result * this.avgSale;
+      let roundedCookies = Math.round(totalCookies);
+      this.totalCookies.push(roundedCookies);
+      this.grandTotal += roundedCookies;
+      console.log(this.grandTotal);
+    }
+  },
+  displaySales: function() {
+    this.saleEachHour();
+    let section = document.getElementById('salesperhour');
+    let h2 = document.createElement('h2');
+    h2.textContent = this.name;
+    section.appendChild(h2);
+    let ul = document.createElement('ul');
+    section.appendChild(ul);
+    for (let i = 0; i < this.totalCookies.length; i++) {
+      let li = document.createElement('li');
+      ul.appendChild(li);
+      li.textContent = `${hours[i]}: ${this.totalCookies[i]} cookies`;
+    }
+    let totalli = document.createElement('li');
+    ul.appendChild(totalli);
+    totalli.textContent = `Total = ${this.grandTotal}`;
+  }
+};
+tokyo.displaySales();
 
 
 
@@ -76,13 +105,4 @@ function generateBetween(low, high) {
 
 
 
-
-// function list() {
-//   let html = '<${o}l><li>';
-//   Array.from(hours.length, saleEachHour(23, 65, 6.3));
-//   html += Array.from('</li><li>');
-//   html += '</li></${o}l>';
-//   return html;
-// }
-// list();
 
