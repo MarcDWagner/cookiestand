@@ -24,23 +24,65 @@
 let hours = ['0600', '0700', '0800', '0900', '1000', '1100', '1200', '1300', '1400', '1500', '1600', '1700', '1800', '1900'];
 
 let seattle = {
+  name: 'Seattle Sales',
   minCust: 23,
   maxCust: 65,
   avgSale: 6.3,
+  totalCookies: [],
+  grandTotal: 0,
+
+  saleEachHour: function () {
+    for (let i = 0; i < hours.length; i++) {
+      let result = generateBetween(this.minCust, this.maxCust);
+      let totalCookies = result * this.avgSale;
+      let roundedCookies = Math.round(totalCookies);
+      this.totalCookies.push(roundedCookies);
+      this.grandTotal += roundedCookies;
+      console.log(this.grandTotal);
+    }
+  },
+  displaySales: function() {
+    this.saleEachHour();
+    let section = document.getElementById('salesperhour');
+    let h2 = document.createElement('h2');
+    h2.textContent = this.name;
+    section.appendChild(h2);
+    let ul = document.createElement('ul');
+    section.appendChild(ul);
+    for (let i = 0; i < this.totalCookies.length; i++) {
+      let li = document.createElement('li');
+      ul.appendChild(li);
+      li.textContent = `${hours[i]}: ${this.totalCookies[i]} cookies`;
+    }
+    let totalli = document.createElement('li');
+    ul.appendChild(totalli);
+    totalli.textContent = `Total = ${this.grandTotal}`;
+  }
 };
-console.log(seattle);
+
+seattle.displaySales();
+// console.log(seattle);
 
 function generateBetween(low, high) {
   return Math.floor(Math.random() * (high - low + 1)) + low;
 }
 
-function saleEachHour(low, high, average) {
-  let result = generateBetween(low, high);
-  let totalCookies = result * average;
-  return Math.round(totalCookies);
-}
-console.log(saleEachHour(23, 65, 6.3));
 
-for (let i = 0; i < hours.length; i++) {
-  console.log(saleEachHour(26, 65, 6.3));
-}
+
+
+
+
+
+
+
+
+
+// function list() {
+//   let html = '<${o}l><li>';
+//   Array.from(hours.length, saleEachHour(23, 65, 6.3));
+//   html += Array.from('</li><li>');
+//   html += '</li></${o}l>';
+//   return html;
+// }
+// list();
+
