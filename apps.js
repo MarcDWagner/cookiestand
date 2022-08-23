@@ -97,7 +97,43 @@ let tokyo = {
 };
 tokyo.displaySales();
 
+let dubai = {
+  name: 'Dubai Sales',
+  minCust: 11,
+  maxCust: 38,
+  avgSale: 3.7,
+  totalCookies: [],
+  grandTotal: 0,
 
+  saleEachHour: function () {
+    for (let i = 0; i < hours.length; i++) {
+      let result = generateBetween(this.minCust, this.maxCust);
+      let totalCookies = result * this.avgSale;
+      let roundedCookies = Math.round(totalCookies);
+      this.totalCookies.push(roundedCookies);
+      this.grandTotal += roundedCookies;
+      console.log(this.grandTotal);
+    }
+  },
+  displaySales: function() {
+    this.saleEachHour();
+    let section = document.getElementById('salesperhour');
+    let h2 = document.createElement('h2');
+    h2.textContent = this.name;
+    section.appendChild(h2);
+    let ul = document.createElement('ul');
+    section.appendChild(ul);
+    for (let i = 0; i < this.totalCookies.length; i++) {
+      let li = document.createElement('li');
+      ul.appendChild(li);
+      li.textContent = `${hours[i]}: ${this.totalCookies[i]} cookies`;
+    }
+    let totalli = document.createElement('li');
+    ul.appendChild(totalli);
+    totalli.textContent = `Total = ${this.grandTotal}`;
+  }
+};
+dubai.displaySales();
 
 
 
