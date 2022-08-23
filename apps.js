@@ -14,8 +14,30 @@
 // Use 'this' keyword
 // Here's the store hours, here's my values for cookie sales
 
+let salesTable = [];
 
 let hours = ['0600', '0700', '0800', '0900', '1000', '1100', '1200', '1300', '1400', '1500', '1600', '1700', '1800', '1900'];
+
+function Store(name, minCust, maxCust, avgSale, totalCookies, grandTotal) {
+  this.name = name;
+  this.minCust = minCust;
+  this.maxCust = maxCust;
+  this.avgSale = avgSale;
+  this.totalCookies = totalCookies;
+  this.grandTotal = grandTotal;
+}
+
+Store.prototype.saleEachHour = function () {
+  console.log(this.name.toUpperCase() + '.');
+};
+Store.prototype.displaySales = function (name) {
+  this.name - name;
+};
+
+function cityData (data) {
+  salesTable.push(new Store(data.name, data.minCust, data.maxCust, data.avgSale, data.totalCookies, data.grandTotal));
+}
+console.log(cityData);
 
 let seattle = {
   name: 'Seattle Sales',
@@ -35,7 +57,7 @@ let seattle = {
       console.log(this.grandTotal);
     }
   },
-  displaySales: function() {
+  displaySales: function () {
     this.saleEachHour();
     let section = document.getElementById('salesperhour');
     let h2 = document.createElement('h2');
@@ -55,9 +77,11 @@ let seattle = {
 };
 seattle.displaySales();
 
+
 function generateBetween(low, high) {
   return Math.floor(Math.random() * (high - low + 1)) + low;
 }
+
 
 let tokyo = {
   name: 'Tokyo Sales',
@@ -77,7 +101,7 @@ let tokyo = {
       console.log(this.grandTotal);
     }
   },
-  displaySales: function() {
+  displaySales: function () {
     this.saleEachHour();
     let section = document.getElementById('salesperhour');
     let h2 = document.createElement('h2');
@@ -115,7 +139,7 @@ let dubai = {
       console.log(this.grandTotal);
     }
   },
-  displaySales: function() {
+  displaySales: function () {
     this.saleEachHour();
     let section = document.getElementById('salesperhour');
     let h2 = document.createElement('h2');
@@ -153,7 +177,7 @@ let paris = {
       console.log(this.grandTotal);
     }
   },
-  displaySales: function() {
+  displaySales: function () {
     this.saleEachHour();
     let section = document.getElementById('salesperhour');
     let h2 = document.createElement('h2');
@@ -191,7 +215,7 @@ let lima = {
       console.log(this.grandTotal);
     }
   },
-  displaySales: function() {
+  displaySales: function () {
     this.saleEachHour();
     let section = document.getElementById('salesperhour');
     let h2 = document.createElement('h2');
