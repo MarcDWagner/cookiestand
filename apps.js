@@ -39,25 +39,56 @@ Store.prototype.saleEachHour = function () {
 };
 Store.prototype.displaySales = function () {
   this.saleEachHour();
-  let section = document.getElementById('salesperhour');
-  let h2 = document.createElement('h2');
-  h2.textContent = this.name;
-  section.appendChild(h2);
-  let ul = document.createElement('ul');
-  section.appendChild(ul);
+  let table = document.getElementById('allStores');
+  let th = document.createElement('th');
+  let row = document.createElement('tr');
+  th.textContent = this.name;
+  row.appendChild(th);
+  table.appendChild(row);
+  // let ul = document.createElement('ul');
+  // table.appendChild(ul);
   for (let i = 0; i < this.totalCookiesEachHour.length; i++) {
-    let li = document.createElement('li');
-    ul.appendChild(li);
-    li.textContent = `${hours[i]}: ${this.totalCookiesEachHour[i]} cookies`;
+    let cell = document.createElement('td');
+    row.appendChild(cell);
+    cell.textContent = `${this.totalCookiesEachHour[i]}`;
   }
-  let totalli = document.createElement('li');
-  ul.appendChild(totalli);
-  totalli.textContent = `Total = ${this.grandTotal}`;
+  let totalCell = document.createElement('td');
+  row.appendChild(totalCell);
+  totalCell.textContent = `${this.grandTotal}`;
 };
 function generateBetween(low, high) {
   return Math.floor(Math.random() * (high - low + 1)) + low;
 }
 
+function generateFooter() {
+  let table = document.getElementById('grandTotal');
+
+  let row = document.createElement('tr');
+  let head = document.createElement('th');
+  head.textContent = 'Total Sales';
+  row.appendChild(head);
+  table.appendChild(row);
+
+  for (let hour in hours) {
+    let salesAtHour = 0;
+    let cell = document.createElement('td');
+    for (let store in allStores) {
+      let currentStore = allStores[store];
+      let currentSales = currentStore.totalCookiesEachHour[hour];
+      salesAtHour += currentSales;
+    }
+    cell.textContent = salesAtHour;
+    row.appendChild(cell);
+    // console.log(`Sales at ${hours[hour]} : ${salesAtHour}`);
+  }
+  let cell = document.createElement('td');
+  let totals = 0;
+  for (let store of allStores) {
+    totals += store.grandTotal;
+  }
+  cell.textContent = totals;
+  row.appendChild(cell);
+}
 let allStores = [];
 
 new Store('Seattle', 23, 65, 6.3);
@@ -66,6 +97,13 @@ new Store('Dubai', 11, 38, 3.7);
 new Store('Paris', 20, 38, 2.3);
 new Store('Lima', 2, 16, 4.6);
 allStores[0].displaySales();
+allStores[1].displaySales();
+allStores[2].displaySales();
+allStores[3].displaySales();
+allStores[4].displaySales();
+generateFooter();
+
+
 // console.log(Store);
 
 // function cityData(data) {
