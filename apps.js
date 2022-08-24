@@ -54,16 +54,10 @@ Store.prototype.displaySales = function () {
   ul.appendChild(totalli);
   totalli.textContent = `Total = ${this.grandTotal}`;
 };
-// };
-// };
 function generateBetween(low, high) {
   return Math.floor(Math.random() * (high - low + 1)) + low;
 }
 
-// function cityData(data) {
-//   salesTable.push(new Store(data.seattle, data.tokyo, data.dubai, data.paris, data.lima, data.grandTotal));
-// }
-// console.log(cityData);
 let allStores = [];
 
 new Store('Seattle', 23, 65, 6.3);
@@ -72,6 +66,12 @@ new Store('Dubai', 11, 38, 3.7);
 new Store('Paris', 20, 38, 2.3);
 new Store('Lima', 2, 16, 4.6);
 
+// function cityData(data) {
+//   salesTable.push(new Store(data.seattle, data.tokyo, data.dubai, data.paris, data.lima, data.grandTotal));
+// }
+// console.log(cityData);
+// };
+// };
 // let seattle = {
 //   name: 'Seattle Sales',
 //   minCust: 23,
