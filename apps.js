@@ -65,8 +65,8 @@ new Store('Tokyo', 3, 24, 1.2);
 new Store('Dubai', 11, 38, 3.7);
 new Store('Paris', 20, 38, 2.3);
 new Store('Lima', 2, 16, 4.6);
-
-console.log(Store);
+allStores[0].displaySales();
+// console.log(Store);
 
 // function cityData(data) {
 //   salesTable.push(new Store(data.seattle, data.tokyo, data.dubai, data.paris, data.lima, data.grandTotal));
