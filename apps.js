@@ -34,7 +34,7 @@ Store.prototype.saleEachHour = function () {
     let roundedCookies = Math.round(totalCookiesOneHour);
     this.totalCookiesEachHour.push(roundedCookies);
     this.grandTotal += roundedCookies;
-    console.log(this.grandTotal);
+    // console.log(this.grandTotal);
   }
 };
 Store.prototype.displaySales = function () {
