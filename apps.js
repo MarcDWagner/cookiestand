@@ -103,6 +103,19 @@ allStores[3].displaySales();
 allStores[4].displaySales();
 generateFooter();
 
+let formEl= document.getElementById('new-location');
+
+formEl.addEventListener('submit', function() {
+  event.preventDefault();
+  console.log(event);
+  console.log('form submitted');
+});
+
+
+
+
+
+
 
 // console.log(Store);
 
