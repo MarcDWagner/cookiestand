@@ -103,11 +103,21 @@ allStores[3].displaySales();
 allStores[4].displaySales();
 generateFooter();
 
-let formEl= document.getElementById('new-location');
+let formEl = document.getElementById('new-location');
 
-formEl.addEventListener('submit', function() {
+
+
+formEl.addEventListener('submit', function(event) {
   event.preventDefault();
   console.log(event);
+  console.log(event.target);
+  console.log(event.target.location_name);
+  console.log(event.target.min_customers);
+  console.log(event.target.max_customers);
+  console.log(event.target.avg_cookie_sold);
+
+  let { location_name, min_customers, max_customers, avg_cookie_sold } = event.target;
+  console.log('Values :', location_name.value, min_customers.value, max_customers.value, avg_cookie_sold.value);
   console.log('form submitted');
 });
 
