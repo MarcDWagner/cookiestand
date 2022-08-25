@@ -2,6 +2,10 @@ h1 {
   color:aqua
 }
 
+li {
+  display: inline;
+}
+
 header {
   display: flex;
   align-items: center;
