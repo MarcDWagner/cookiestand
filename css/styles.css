@@ -1,6 +1,12 @@
 h1 {
   color:aqua
 }
+
+header {
+  display: flex;
+  align-items: center;
+}
+
 .hourslocations {
   display: flex;
   align-items: center;
