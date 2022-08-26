@@ -33,15 +33,32 @@
       </tr>
      </thead>
      <tbody id="allStores">
-
      </tbody>
      <tfoot id="grandTotal">
-
      </tfoot>
     </table>
-  <!-- <section id="salesperhour">
- 
-  </section> -->
+    <form id="new-location">
+      <fieldset>
+        <legend>Create a New Location</legend>
+        <section class="input-section">
+          <Label>Location City:</Label>
+          <input name="location_name" type="text">
+        </section>
+        <section class="input-section">
+          <Label>Minimum customers per hour:</Label>
+          <input name="min_customers" type="number">
+        </section>
+        <section class="input-section">
+          <Label>Maximum customers per hour:</Label>
+          <input name="max_customers" type="number">
+        </section>
+        <section class="input-section">
+          <Label>Average of cookies per sale:</Label>
+          <input name="avg_cookie_sold" type="number">
+        </section>
+        <button type="submit">Create Location Data</button>
+      </fieldset>
+    </form>
   </body>
   <footer>
     <script src="apps.js"></script>

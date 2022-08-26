@@ -24,6 +24,7 @@ function Store(name, minCust, maxCust, avgSale) {
   this.avgSale = avgSale;
   this.totalCookiesEachHour = [];
   this.grandTotal = 0;
+  this.displaySales();
   allStores.push(this);
 }
 
@@ -56,6 +57,7 @@ Store.prototype.displaySales = function () {
   row.appendChild(totalCell);
   totalCell.textContent = `${this.grandTotal}`;
 };
+
 function generateBetween(low, high) {
   return Math.floor(Math.random() * (high - low + 1)) + low;
 }
@@ -96,12 +98,52 @@ new Store('Tokyo', 3, 24, 1.2);
 new Store('Dubai', 11, 38, 3.7);
 new Store('Paris', 20, 38, 2.3);
 new Store('Lima', 2, 16, 4.6);
-allStores[0].displaySales();
-allStores[1].displaySales();
-allStores[2].displaySales();
-allStores[3].displaySales();
-allStores[4].displaySales();
+// allStores[0].displaySales();
+// allStores[1].displaySales();
+// allStores[2].displaySales();
+// allStores[3].displaySales();
+// allStores[4].displaySales();
 generateFooter();
+
+let formEl = document.getElementById('new-location');
+
+
+
+formEl.addEventListener('submit', function(event) {
+  event.preventDefault();
+  console.log(event);
+  // console.log(event.target);
+  // console.log(event.target.location_name);
+  // console.log(event.target.min_customers);
+  // console.log(event.target.max_customers);
+  // console.log(event.target.avg_cookie_sold);
+
+  let { location_name, min_customers, max_customers, avg_cookie_sold } = event.target;
+  let addedStore = new Store(
+    location_name.value,
+    min_customers.value,
+    max_customers.value,
+    avg_cookie_sold.value
+  );
+  // console.log('form submitted');
+  allStores.push(addedStore);
+  console.log(allStores);
+
+  let allStoresEl = document.getElementById('allStores');
+  allStoresEl.innerHTML = '';
+
+  // new Store();
+  //use innerhtml to clear the form
+  // displaySales();
+  // generateFooter();
+});
+
+// addedStore.push(event);
+// console.log(allStores);
+
+
+
+
 
 
 // console.log(Store);
