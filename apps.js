@@ -121,15 +121,23 @@ formEl.addEventListener('submit', function(event) {
     location_name.value,
     min_customers.value,
     max_customers.value,
-    avg_cookie_sold.value);
-  console.log('form submitted');
+    avg_cookie_sold.value
+  );
+  // console.log('form submitted');
+  allStores.push(addedStore);
+  console.log(allStores);
+
+  let allStoresEl = document.getElementById('allStores');
+  allStoresEl.innerHTML = '';
+
+  // new Store();
   //use innerhtml to clear the form
-  generateFooter();
+  // displaySales();
+  // generateFooter();
 });
 
 // addedStore.push(event);
-// allStores.push(addedStore);
-console.log(allStores);
+// console.log(allStores);
 
 
 
