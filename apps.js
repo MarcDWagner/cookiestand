@@ -24,6 +24,7 @@ function Store(name, minCust, maxCust, avgSale) {
   this.avgSale = avgSale;
   this.totalCookiesEachHour = [];
   this.grandTotal = 0;
+  this.displaySales();
   allStores.push(this);
 }
 
@@ -56,6 +57,7 @@ Store.prototype.displaySales = function () {
   row.appendChild(totalCell);
   totalCell.textContent = `${this.grandTotal}`;
 };
+
 function generateBetween(low, high) {
   return Math.floor(Math.random() * (high - low + 1)) + low;
 }
@@ -96,11 +98,11 @@ new Store('Tokyo', 3, 24, 1.2);
 new Store('Dubai', 11, 38, 3.7);
 new Store('Paris', 20, 38, 2.3);
 new Store('Lima', 2, 16, 4.6);
-allStores[0].displaySales();
-allStores[1].displaySales();
-allStores[2].displaySales();
-allStores[3].displaySales();
-allStores[4].displaySales();
+// allStores[0].displaySales();
+// allStores[1].displaySales();
+// allStores[2].displaySales();
+// allStores[3].displaySales();
+// allStores[4].displaySales();
 generateFooter();
 
 let formEl = document.getElementById('new-location');
