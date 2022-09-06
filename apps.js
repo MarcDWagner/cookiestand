@@ -70,14 +70,11 @@ function generateBetween(low, high) {
 
 let hoursRow = function () {
   let thead = document.getElementById('hours');
-
   let tr = document.createElement('tr');
   thead.appendChild(tr);
-
   let th = document.createElement('th');
   th.textContent = '';
   tr.appendChild(th);
-
   for (let i = 0; i < hours.length; i++) {
     let td = document.createElement('th');
     td.textContent = hours[i];
@@ -95,7 +92,6 @@ function generateFooter() {
   head.textContent = 'Total Sales';
   row.appendChild(head);
   table.appendChild(row);
-
   for (let hour in hours) {
     let salesAtHour = 0;
     let cell = document.createElement('td');
@@ -130,10 +126,10 @@ let formEl = document.getElementById('new-location');
 formEl.addEventListener('submit', function (event) {
   event.preventDefault();
   let newLocation = event.target.name.value;
-  let minCust = parseInt(event.target.minCust.value);
-  let maxCust = parseInt(event.target.maxCust.value);
-  let avgSale = parseInt(event.target.avgSale.value);
-  console.log('Form values on submit', newLocation, minCust, maxCust, avgSale);
+  let minCust = event.target.minCust.value;
+  let maxCust = event.target.maxCust.value;
+  let avgSale = event.target.avgSale.value;
+  // console.log('Form values on submit', newLocation, minCust, maxCust, avgSale);
   new Store(newLocation, minCust, maxCust, avgSale);
 
   console.log('form submitted');
