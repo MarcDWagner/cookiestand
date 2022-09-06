@@ -44,9 +44,9 @@ Store.prototype.displaySales = function () {
   this.saleEachHour();
   let tableBody = document.getElementById('allStores');
   let tr = document.createElement('tr');
-  // let row = document.createElement('tr');
-  // tr.textContent = this.name;
-  // row.appendChild(tr);
+  let row = document.createElement('tr');
+  tr.textContent = this.name;
+  row.appendChild(tr);
   tableBody.appendChild(tr);
 
   // let th = document.createElement('th');
@@ -129,7 +129,7 @@ let formEl = document.getElementById('new-location');
 
 formEl.addEventListener('submit', function (event) {
   event.preventDefault();
-  let newLocation = event.target.location.value;
+  let newLocation = event.target.name.value;
   let minCust = parseInt(event.target.minCust.value);
   let maxCust = parseInt(event.target.maxCust.value);
   let avgSale = parseInt(event.target.avgSale.value);
